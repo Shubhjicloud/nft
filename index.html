@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon NFT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">NFT ZONE</div>
+
+  <div class="top-buttons">
+    <!-- LEFT SIDE PROFILE -->
+    <a href="profile.html">Profile</a>
+
+    <!-- RIGHT SIDE WALLET -->
+    <a href="wallet.html">Wallet</a>
+
+    <!-- TELEGRAM CHANNEL LINK -->
+    <a href="https://t.me/YOUR_CHANNEL" target="_blank">TG@</a>
+  </div>
+</header>
+
+<div class="grid" id="nftGrid">
+  <!-- NFT cards yahan auto load honge -->
+</div>
+
+<script>
+/*
+=============================
+JSON SETUP
+=============================
+
+1. Ek file banao: nfts.json
+2. JSON structure:
+[
+  {
+    "NFT_NAME": "Birthday Candle",
+    "IMAGE_URL": "https://example.com/candle.png",
+    "PRICE_TON": "1.2",
+    "NFT_LINK": "http://t.me/nft/BDayCandle-32276"
+  },
+  {
+    "NFT_NAME": "Gift Box",
+    "IMAGE_URL": "https://example.com/gift.png",
+    "PRICE_TON": "0.5",
+    "NFT_LINK": "https://getgems.io/..."
+  }
+]
+3. index.html aur nfts.json same folder me rakho
+*/
+
+fetch('nfts.json')
+  .then(res => res.json())
+  .then(data => {
+    const grid = document.getElementById("nftGrid");
+
+    data.forEach(nft => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.onclick = () => window.open(nft.link, "_blank");
+
+      card.innerHTML = `
+        <img src="${nft.image}">
+        <h3>${nft.name}</h3>
+        <div class="price">${nft.price}</div>
+      `;
+
+      grid.appendChild(card);
+    });
+  })
+  .catch(err => console.error("Error loading NFTs JSON:", err));
+  </script>
+  
+  </body>
+  </html>
