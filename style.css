@@ -1,0 +1,129 @@
+body {
+  background: black !important;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #0ff2, #000 60%);
+  color: #fff;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;        /* ↓ */
+}
+
+.logo {
+  font-size: 16px;          /* ↓ */
+  font-weight: bold;
+  color: cyan;
+}
+
+.top-buttons a {
+  margin-left: 6px;         /* ↓ */
+  padding: 6px 10px;        /* ↓ */
+  font-size: 12px;          /* ↓ */
+  border-radius: 16px;
+  border: 1px solid cyan;
+  color: cyan;
+  text-decoration: none;
+  box-shadow: 0 0 8px cyan; /* ↓ */
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;                /* ↓ */
+  padding: 10px;            /* ↓ */
+}
+
+/* CARD */
+.card {
+  background: #111;
+  border-radius: 12px;      /* ↓ */
+  padding: 8px;             /* ↓ */
+  box-shadow: 0 0 15px purple; /* ↓ */
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;      /* ↓ */
+}
+
+.card h3 {
+  margin: 6px 0 4px;        /* ↓ */
+  font-size: 13px;          /* ↓ */
+}
+
+.price {
+  color: cyan;
+  font-weight: bold;
+  font-size: 12px;          /* ↓ */
+}
+
+
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+  /* ⬇⬇⬇ YE 6 LINES ADD KARO ⬇⬇⬇ */
+  .top-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end; /* Buttons ko right side */
+    position: relative;
+  }
+  
+  .top-buttons a:last-child {
+    position: absolute;
+    left: 10px; /* Telegram ko left side */
+    background: #0088cc;
+    color: white;
+  }
+  /* ⬆⬆⬆ YE 6 LINES ADD KARO ⬆⬆⬆ */
+  
+  header {
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .top-buttons a {
+    padding: 6px 10px;
+    font-size: 12px;
+    margin-left: 6px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .card {
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  .card img {
+    border-radius: 10px;
+  }
+
+  .card h3 {
+    font-size: 13px;
+    margin: 6px 0 4px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+  
+}
